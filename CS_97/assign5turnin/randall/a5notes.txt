@@ -1,0 +1,88 @@
+Notes for Assignment 5:
+
+First we need to make tests to make sure the file works
+- need to edit in the makefile
+Need to go into makefile
+- make a check target (needs randall and tester script)
+- use check target to run testerscript.sh
+- testerscript will have a code to test to see if randall works
+Need to make testerScript.sh
+- one time : check if it outputs the correct amount of characters
+- need to give it excecute permissions  (use chmod +x testerscript.sh)
+Using the testerScript:
+- can just run it with ./testerScript
+- run with makefile by using make check (bc it uses the check target)
+
+Now we need to make all the files to split up the randall code:
+- make files and headers with touch
+touch options.c options.h output.c output.h
+touch rand64-hw.c rand64-hw.h rand64-sw.c rand64-sw.h
+- in general to add a header to a c file
+  #include "<headerName>.h"
+Header files (.h) are designed to provide the information that will be needed in multiple files. Thing\
+s like class declarations, function prototypes, and enumerations typically go in header files. In a wo\
+rd, "definitions"
+
+In order to take from the randall.c file
+C-spc set mark
+C-w   kill (similar to cut)
+C-y   yank (similar to paste)
+
+Note: Remove static from everywhere
+- need to do this  because static restricts the usage of a function to a specific file. Which is good if you want to protect that function or be able to re-use that name in other locations. 
+
+Options
+- in the main function has the part that loooks
+Output 
+- write bytes function
+- do while loop that prints by calling writebytes 
+- do not add do while loop just use write bytes
+rand64-hw
+- above the main function
+rand64-sw
+- above the main function
+
+
+Sanity Check 
+ # This is a sanity check to test whether you’re in the right ballpark.
+    time dd if=/dev/urandom ibs=8192 obs=8192 count=16384 >/dev/null
+
+    16384+0 records in
+    16384+0 records out
+    134217728 bytes (134 MB, 128 MiB) copied, 0.894106 s, 150 MB/s
+
+    real	0m0.910s
+    user	0m0.021s
+    sys	0m0.887s
+
+time ./randall -i /dev/urandom 133562368 >/dev/null
+
+    real	0m2.658s
+    user	0m1.772s
+    sys	    0m0.888s
+
+time ./randall -i /dev/urandom 133562368 | cat >/dev/null
+
+    real	0m2.726s
+    user	0m1.774s
+    sys	    0m1.112s
+
+time ./randall -i /dev/urandom 133562368 >rand.data
+
+    real	0m5.458s
+    user	0m1.720s
+    sys	    0m0.995s
+
+
+
+
+
+
+
+
+
+
+
+
+
+

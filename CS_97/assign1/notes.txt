@@ -1,0 +1,99 @@
+CS 97 Homework 1 Notes 
+
+Lab 1.5: Exploring the operating system outside Emacs
+
+1) Where are the mv and sh programs located in the file system?
+
+The program "mv" is stored in /usr/local/cs/bin/mv 
+The program "sh" is stored in /usr/bin/sh
+
+
+2) What executable programs in /usr/bin have names that are exactly two characters long and end in r, and what do they do?
+
+/usr/bin/ar
+The "ar" command is used to create, modify, and extract from archives.
+/usr/bin/tr
+The "tr" command is used for translate or delete characters.
+/usr/bin/pr
+The "pr" command is used to convert text files for printing.
+
+
+3) When you execute the command named by the symbolic link /usr/bin/emacs, which file actually is executed?
+
+lrwxrwxrwx 1 root root 19 Jul 16  2020 /etc/alternatives/emacs -> /usr/bin/emacs-24.3
+The file executed is /usr/bin/emacs-24.3
+
+
+4) What is the version number of the /usr/bin/gcc program? of the plain gcc program? Why are they different programs?
+
+The "/usr/bin/gcc" program is gcc version 8.3.1 20191121 (Red Hat 8.3.1-5) (GCC)
+The "gcc" program is gcc version 10.2.0 (GCC).
+They are different programs as we can see that they have differnt pathways with the plain gcc command having th pathway "/usr/local/cs/bin/gcc" which the "/usr/bin/gcc" command has a pathway of "/usr/local/gcc"
+We can see that they are different programs as the plain gcc is belong to the local server we are using while the "/usr/bin/gcc" is from the computer.
+
+
+5) The chmod program changes permissions on a file. What does the symbolic mode u+sx,o-w mean, in terms of permissions?
+
+The mode "u+sx" means to add the exceute permission for a set user or group ID on execution for the user who owns it. W
+The mode "o-w" means to remove the writing permission for other users not in the file's group.
+
+
+6) Use the find command to find all directories modified in the last four weeks that are located under (or are the same as) the directory /usr/local/cs.
+
+There is one directory that has been modifed in the last 4 weeks and it is
+"/usr/local/cs/bin"
+
+
+7) Of the files in the same directory as find, how many of them are symbolic links?
+
+There are 307 files that are symbolic links (in lnxsrv09)
+
+
+8) What is the oldest regular file in the /usr/lib64 directory? Use the last-modified time to determine age. Specify the name of the file without the /usr/lib64/ prefix. Consider files whose names start with ".".
+
+-rwxr-xr-x.  1 root root       19408 Dec 28  2013 librom1394.so.0.3.0
+The file name is "librom1394.so.0.3.0"
+The file was made on Dec 28 2013
+
+9) Where does the locale command get its data from?
+
+The locale command gets locale specific information by using pathways such as
+I18NPATH=./wrk/ localedef -f UTF-8 -i fi_SE $HOME/.locale/fi_SE.UTF-8
+LOCPATH=$HOME/.locale LC_ALL=fi_SE.UTF-8 date
+
+
+10) In Emacs, what commands have downcase in their name
+
+ "M-x downcase-word" converts the following word to lower case
+ "M-x downcase-region" converts a region to lower case. 
+
+11) Briefly, what do the Emacs keystrokes C-M-r through C-M-v do? Can you list their actions concisely?
+
+C-M-r: reverse regular expression search 
+C-M-s: regular expression search 
+C-M-t: transpose sexps 
+C-M-u: Move up in parenthesis structure
+C-M-v: scroll help window or scroll other window
+
+
+12) In more detail, what does the Emacs keystroke C-g do?
+
+"C-g" is to abort command. With this keystroke, we are quitting which cancels a partially typed command, or one which is still running. This is used to cancel a command before it has finished.
+
+
+13) What does the Emacs yank function do, and how can you easily invoke it using keystrokes?
+
+The emacs yank function is used to yank or bring back text that was killed/saved. This means that the yank function will place text that was previously removed and saved into a new location. This is somewhat similar to the paste command in microsoft word.
+The yank function can be invoked using "C-y" or "control-y" meaning you you press the control and y keys at the same time to perform a yank.
+
+
+14) When looking at the directory /usr/bin, what's the difference between the output of the ls -l command, and the directory listing of the Emacs dired command?
+
+Emacs has different color for symbolic links. Emacs also shows the amount of space availible left (which was 8.8 GiB) which the terimanl does not. The terminal has the labels in a differnt color to help separate the files. There differences in colors and what is highlighted, ie Emacs seems to highlight the letter 's' in red.
+
+
+
+
+
+
+

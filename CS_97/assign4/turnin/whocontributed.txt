@@ -1,0 +1,83 @@
+command
+mdfind "Even newspaper reports present contradictory information"
+- this is to find all the files that has this line of text
+- in the northamerica file of tz
+
+in tz directory use the following:
+
+git log -S <searchString> : when the given string was added to removed from the repo
+- will give the author and the date of when they added it 
+
+there is a certain phrase we want to search for 
+git log -S "Even newspaper reports present contradictory information."
+
+commit c12b432741eed9a422fbf99fa27af6e7a941d88b
+Author: Arthur David Olson <ado@elsie>
+Date:   Thu Dec 21 11:43:42 1995 -0500
+
+    Eggert changes
+    
+    SCCS-file: northamerica
+    SCCS-SID: 7.20
+
+ we get this and we know the commit the author and the date it was published
+
+commit: c12b4327
+
+command
+git show c12b4327
+
+What is displayed
+ diff --git a/northamerica b/northamerica
+index 92b55af..9b8a5ec 100644
+--- a/northamerica
++++ b/northamerica
+@@ -14,25 +14,24 @@
+ 
+ # United States
+ 
++# From Paul Eggert <eggert@twinsun.com> (1995-12-19):
++# A good source for time zone historical data in the US is
++# Thomas G. Shanks, The American Atlas (5th edition),
++# San Diego: ACS Publications, Inc. (1991).
++# Make sure you have the errata sheet; the book is somewhat useless without it.
++# It is the source for the US and Puerto Rico entries below.
+:
+
+if we go into the northamerica file we see that eggert wrote 
+
+Shanks partitioned Indiana into 345 regions, each with its own time history,
+# and wrote "Even newspaper reports present contradictory information."
+# Those Hoosiers!  Such a flighty and changeable people!
+# Fortunately, most of the complexity occurred before our cutoff date of 1970.
+
+This is a quote and it does give creidt to Shanks
+
+
+Summary
+went to tz repository 
+used mdfind to see the files where the quote might be
+used git log -S <text> to find the commit 
+- we saw the author of the commit to be Arthur David Olson
+- note: we know now that the line in question is in the north america file
+used git show <commit> to see the comments in the commit 
+- we saw that there were three people adding in this commit 
+- 1) Arthur David Olson
+- 2) seismo!munnari!kre
+- 3) Paul Eggert 
+used cat northamerica to look into the file
+- found the quote using control+f 
+- the line in question was writen by paul eggert 
+- line is in quotes and eggert gives credits to Shanks
+
+Overall: While eggert wrote the line, he gave credit to Shanks and did not copy.
+
+commands: 
+*assumes we are in the tz repository*
+mdfind "Even newspaper reports present contradictory information."
+git log -S "Even newspaper reports present contradictory information."
+	note: press q to quit
+git show c12b4327
+	note: press q to quit
+cat northamerica 
+	note: use control+f to find the quote

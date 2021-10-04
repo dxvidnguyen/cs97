@@ -1,0 +1,194 @@
+CS 97 L2 
+
+Three topics: 
+
+* Emacs intro - text editor + development enviroment 	) MIT thing 1980's
+* Unix/Linux/POSIX file system organization 			) Bell labs thing 1960
+* Command-line basics and the Unix/Linux/POSIX shell 	)
+
+We are developing apps, we want them to: 
+- survive power outages 
+	(persistence) (persisant data)
+	note: peristent means that smt will stay even if the file crashes
+- be fast ie. we type something we want it to show on the screen fast
+	* so we cannot make everything persistent because secondary storage is too slow
+	* aside: hard disks are pretty slow
+			 flash drives are still pretty slow too for interactive
+			 newer devices may be better
+- be understandable 
+	1) easy to read 
+	2) easy to maintain 
+	3) easy to write 
+
+Emacs provides a view into this situtation 
+- a bit tricky because Emacs itself is an app 
+Which means you can use Emacs to view itself 
+- It's "reflective", it can look at itself like a "mirror"
+
+How can you enter Emacs to edit a file? 
+- Log into SEASnet
+- shell command: 'emacs filename'
+- usually just type plain 'emacs' 
+- C-x C-f filename RET 
+
+Note: 
+C = control  (C-x means hold down the ctrl key and type x)
+RET = return / enter
+SPC = space 
+MISSING STUFF :(
+
+
+
+control h k Enter 
+
+hold down control key
+type h 
+type k 
+type Enter
+
+Emacs then pops up a *Help* buffer that explains what that key will do 
+
+What does C-x C-f do?
+- Type "C-h k C-x C-f " to see what it does 
+- it creates a new buffer holding the contents of the named file and switches to that buffer 
+
+TERMINOLOGY 
+File - persistent sequence of bytes stored in a filesystem 
+Filesystem - persistent data structure representing a set of files 
+Buffer - non persistent sequence of bytes in particular Emacs session 
+Window - (Emacs) view of a buffer
+	ie. two windows  1) notes.txt file  2) looks at *help* buffer 
+	Windows have a (typically) view of the buffer contents 
+frame - (Emacs) what everyone else calls a window 
+	Zoom clals frames a "windows" 
+
+Where is the buffer stored? 
+- it is only in RAM.
+
+What is SSH 
+- Secure Shell (aside: this is just a marketing term)
+- establishes an encrypted connection (relatively secure) connection between your computer and (for example) SEASnet
+
+Will the meta key be ESC if we're using emacs while using ssh?
+- yes and no. ALT key should work just like locally but if not you can also type "ESC x" instead of "M-x"
+
+What does x forwarding mean? 
+- see demo
+
+What is the difference between linux posix and the third one? 
+Unix - orignal system designed at BEll labs 
+	   * derived from multics
+	   * has a lot of variants
+POSIX - standardized verision (common subset)
+GNU/Linux - most popular variant 
+	("linux" is hte name of the kernel)
+
+What is a locale?
+- a locale is a language+country enviroment 
+- part of the process of *localization*
+Internatiolization: the process of makin gyour program localizable 
+- Emacs is partly internationalized, uses locales, can handle a lot of languages but is partly english only 
+
+C-x 0
+C-x 1
+C-x 2
+C-x 3 // create a new window side by sisde
+C-x 5
+
+C-h k K // find out what key K does
+C-h b 	// key bindings
+C-h m 	// current mode: Emacs is a *modeful* editior, it has states that 
+			governs how it intreprets your commands
+			C-j in this window can mean one thing (insert a new line)
+			C-j in another window can mean smt else ie. *scratch* buffer
+
+C-h t // tutorial
+C-h i // info 
+
+C-x b NAME // switch to the buffer NAME, use TAB to autocomplete 
+
+C-x C-b // list all your buffers 
+C-x C-f FILENAME // vist FILENAME
+C-x C-s // save your current buffer : necessary to make it persist 
+C-x d DIRNAME RET // visit a directory (default is current directory)
+	you are in dired mode, editing that directory
+
+File and file systems 
+	Files are byte sequences 
+	 ls lists the files in the current directory 
+	 	ls -l : list details 
+	 	ls -a : list all files, even "hidden" ones 
+	 				(start with ".")
+	 So there are at least two kinds of files 
+	 Directories are files that contain lists of file name components and what they mean 
+	 e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
